@@ -4,17 +4,17 @@
  * Exemple : [1, 2, 3] et ["apple", "orange", "banana"] renverra : [1, "apple", 2, "orange", 3, "banana"]
  */
 function combine(tableau1, tableau2) {
-    var newTable = [];
+    var Table = [];
     if (tableau1.length !== tableau2.length) return
     for (var i = 0; i < tableau1.length; i++) {
-        newTable[i * 2] = tableau1[i];
-        newTable[i * 2 + 1] = tableau2[i];
+        Table[i * 2] = tableau1[i];
+        Table[i * 2 + 1] = tableau2[i];
     }
-    return newTable;
+    return Table;
 }
-var tableau1Combine = [1, 2, 3, 4];
-var tableau2Combine = ['apple', 'banana', 'orange', 'lemon'];
-console.log(combine(tableau1Combine, tableau2Combine));
+var tableau1 = [1, 2, 3];
+var tableau2 = ['orange', 'pomme', 'poire'];
+console.log(combine(tableau1, tableau2));
 
 /**
  * Programmer une fonction prenant en argument un tableau d'éléments et une valeur offset, et qui renvoie un tableau avec les valeurs du tableau en argument décalées de la valeur
