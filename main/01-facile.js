@@ -22,11 +22,13 @@ console.log(signe(0))
 function nombresPairs(nombres) {
     var TableauPaire = [];
     var Tab = 0;
-    for (var nbre = 0; nbre < nombres.length; nbre++) {
-        if (nombres[nbre] % 2 === 0) {
-            TableauPaire[Tab] = nombres[nbre];
+    var nombre = 0;
+    while (nombre < nombres.length) {
+        if (nombres[nombre] % 2 === 0) {
+            TableauPaire[Tab] = nombres[nombre];
             Tab++;
         }
+        nombre++
     }
     return TableauPaire
 }
