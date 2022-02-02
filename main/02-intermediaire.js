@@ -4,16 +4,18 @@
  * Exemple : [1, 2, 3] et ["apple", "orange", "banana"] renverra : [1, "apple", 2, "orange", 3, "banana"]
  */
 function combine(tableau1, tableau2) {
-    var Table = [];
+    let Table = [];
+    let k = 0;
     if (tableau1.length !== tableau2.length) return
-    for (var i = 0; i < tableau1.length; i++) {
-        Table[i * 2] = tableau1[i];
-        Table[i * 2 + 1] = tableau2[i];
+    while (k < tableau1.length) {
+        Table[k * 2] = tableau1[k];
+        Table[k * 2 + 1] = tableau2[k];
+        k++;
     }
     return Table;
 }
-var tableau1 = [1, 2, 3];
-var tableau2 = ['orange', 'pomme', 'poire'];
+let tableau1 = [1, 2, 3];
+let tableau2 = ['orange', 'pomme', 'poire'];
 console.log(combine(tableau1, tableau2));
 
 /**
@@ -23,15 +25,17 @@ console.log(combine(tableau1, tableau2));
  * Par exemple : rotate([1, 2, 3, 4, 5], 2) renverra [4, 5, 1, 2, 3] 
  */
 function rotate(tableau, offset) {
-    var newTable = [];
-    var count = offset;
-    for (var i = 0; i < tableau.length; i++) {
-        if (i + count >= tableau.length) count = -i;
-        newTable[i] = tableau[i + count];
+    let Table = [];
+    let element = offset;
+    let k = 0;
+    while (k < tableau.length) {
+        if (k + element >= tableau.length) element = -k;
+        Table[k] = tableau[k + element];
+        k++;
     }
-    return newTable
+    return Table
 }
-var tableauRotate = [1, 2, 3, 4, 5, 6, 7, 8];
+let tableauRotate = [1, 2, 3, 4, 5, 6, 7, 8];
 console.log(rotate(tableauRotate, 2));
 
 /**
@@ -46,18 +50,20 @@ console.log(rotate(tableauRotate, 2));
  * Pour 1, la suite sera : [1, 4, 2, 1, 4, 2, 1, 4, 2, 1]
  */
 function syracuse(nombre) {
-    var currentNbre = nombre;
-    var newTable = [];
-    newTable[0] = currentNbre;
-    for (var i = 1; i < 10; i++) {
-        if (currentNbre % 2 === 0) {
-            currentNbre /= 2;
+    let nbre = nombre;
+    let Table = [];
+    let k = 1;
+    Table[0] = nbre;
+    while (k < 10) {
+        if (nbre % 2 === 0) {
+            nbre /= 2;
         } else {
-            currentNbre = currentNbre * 3 + 1;
+            nbre = nbre * 3 + 1;
         }
-        newTable[i] = currentNbre;
+        Table[k] = nbre;
+        k++;
     }
-    return newTable;
+    return Table;
 }
-var syracuseNbre = 14;
+let syracuseNbre = 14;
 console.log(syracuse(syracuseNbre));
